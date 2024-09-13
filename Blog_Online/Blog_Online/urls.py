@@ -20,5 +20,6 @@ from GestionDeBlog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+    path('', views.home, name='inicio'),
+    path('generales/', views.generales, name='generales'),
 ]
