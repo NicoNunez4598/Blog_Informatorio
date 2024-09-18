@@ -26,4 +26,5 @@ urlpatterns = [
     path('tecnologia/', views.tecnologia, name='tecnologia'),
     path('programacion/', views.programacion, name='programacion'),
     path('videojuegos/', views.videojuegos, name='videojuegos'),
+    path('<slug:slug>/', views.detallepost, name='detallepost'),
 ]
