@@ -4,7 +4,7 @@
 
 2. Crea tu entorno virtual y una vez lo actives ejecuta el comando:
 
- pip install -r requirements.txt
+       pip install -r requirements.txt
 
 3. Ejecuta el comando python manage.py makemigrations
 
