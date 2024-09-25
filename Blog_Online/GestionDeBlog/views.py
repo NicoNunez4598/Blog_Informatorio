@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post, Categoria
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.contrib import messages
 
 # Create your views here.
 
@@ -97,3 +100,7 @@ def tutoriales(request):
 def detallepost(request, slug):
     post = get_object_or_404(Post, slug=slug)
     return render(request, 'post.html', {'detallepost':post})
+
+def exit(request):
+    logout(request)
+    return redirect('inicio')
