@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+    Gestion de Autores
+{% endblock title %}
+
+{% block imagen %} {% static 'assets/img/autores.jpg' %} {% endblock imagen %}
+
+{% block titulo_principal %}
+    Gestion de Autores
+{% endblock titulo_principal %}
+
+{% block barra_busqueda %}{% endblock barra_busqueda %}
+
+{% block contenido %} 
+    <div class="row">
+        <div class="col-md-12 offset-md-12">
+            <h2> Gestion de Clientes </h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editarautor/" method="POST">{% csrf_token %}
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Id</label>
+                            <input type="text" id="numberid" name="numberid" value="{{autor.id}}" class="form-control" placeholder="Id" readonly>
+                        </div>
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Nombres</label>
+                            <input type="text" id="txtNombres" name="txtNombres" value="{{autor.nombres}}" class="form-control" placeholder="Nombres">
+                        </div>
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Apellidos</label>
+                            <input type="text" id="txtApellidos" name="txtApellidos" value="{{autor.apellidos}}" class="form-control" placeholder="Apellidos">
+                        </div>
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Facebook</label>
+                            <input type="text" id="txtFacebook" name="txtFacebook" value="{{autor.facebook}}" class="form-control" placeholder="Facebook">
+                        </div>
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Twitter</label>
+                            <input type="text" id="txtTwitter" name="txtTwitter" value="{{autor.twitter}}" class="form-control" placeholder="Twitter">
+                        </div>
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Instagram</label>
+                            <input type="text" id="txtInstagram" name="txtInstagram" value="{{autor.instagram}}" class="form-control" placeholder="Instagram">
+                        </div>
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Web</label>
+                            <input type="text" id="txtWeb" name="txtWeb" value="{{autor.web}}" class="form-control" placeholder="Web">
+                        </div>
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Correo electrónico</label>
+                            <input type="email" id="email" name="email" value="{{autor.correo}}" class="form-control" placeholder="Correo Electronico">
+                        </div>
+                        <div class="card-item">
+                            <button type="submit" class="btn btn-success btn-block text-white"> Guardar </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}

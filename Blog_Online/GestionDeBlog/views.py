@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib import messages
+from .models import Autor
 
 # Create your views here.
 
@@ -104,3 +105,30 @@ def detallepost(request, slug):
 def exit(request):
     logout(request)
     return redirect('inicio')
+
+def autores(request):
+    autoreslistados = Autor.objects.all()
+    return render(request, 'autores.html', {"autoreslistados" : autoreslistados})
+
+def registrarautor(request):
+
+    nombres=request.POST['txtNombres']
+    apellidos=request.POST['txtApellidos']
+    facebook=request.POST['txtFacebook']
+    twitter=request.POST['txtTwitter']
+    instagram=request.POST['txtInstagram']
+    web=request.POST['txtWeb']
+    correo=request.POST['email']
+    estado=True
+
+    autor= Autor.objects.create(nombres=nombres, apellidos=apellidos, facebook=facebook, twitter=twitter, instagram=instagram, web=web, correo=correo, estado=estado)
+
+    messages.success(request, 'Se ha registrado un autor')
+
+    return redirect('autores')
+
+def edicionautor(request, id):
+
+    autor = Autor.objects.get(id=id)
+
+    return render(request, 'edicionAutores.html', {"autor":autor})

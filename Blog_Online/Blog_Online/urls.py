@@ -28,5 +28,8 @@ urlpatterns = [
     path('tecnologia/', views.tecnologia, name='tecnologia'),
     path('programacion/', views.programacion, name='programacion'),
     path('videojuegos/', views.videojuegos, name='videojuegos'),
+    path('Autores/', views.autores, name="autores"),
+    path('registrarautor/', views.registrarautor, name="registrarautor"),
+    path('Autores/edicionautor/<id>', views.edicionautor, name="edicionautor"),
     path('<slug:slug>/', views.detallepost, name='detallepost'),
 ]
