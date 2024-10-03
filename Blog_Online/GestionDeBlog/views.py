@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib import messages
-from .models import Autor
+from .models import Autor, Categoria
 
 # Create your views here.
 
@@ -170,3 +170,50 @@ def eliminarautor(request, id):
     messages.success(request, 'Se ha eliminado el autor seleccionado')
 
     return redirect('autores')
+
+def categorias(request):
+    categoriaslistadas = Categoria.objects.all()
+    return render(request, 'categorias.html', {"categoriaslistadas" : categoriaslistadas})
+
+def registrarcategoria(request):
+
+    nombre=request.POST['txtNombre']
+    estado=True
+
+    categoria = Categoria.objects.create(nombre=nombre, estado=estado)
+
+    messages.success(request, 'Se ha registrado una categoria')
+
+    return redirect('categorias')
+
+def edicioncategoria(request, id):
+
+    categoria = Categoria.objects.get(id=id)
+
+    return render(request, 'edicionCategorias.html', {"categoria":categoria})
+
+def editarcategoria(request):
+
+    id = request.POST['numberid']
+    nombre=request.POST['txtNombre']
+    estado=request.POST['estado']
+
+    categoria = Categoria.objects.get(id=id)
+    categoria.nombre = nombre
+    categoria.estado = estado
+
+    categoria.save()
+
+    messages.success(request, 'Se ha editado con exito la categoria seleccionada')
+
+    return redirect('categorias')
+
+def eliminarcategoria(request, id):
+    
+    categoria = Categoria.objects.get(id=id)
+
+    categoria.delete()
+
+    messages.success(request, 'Se ha eliminado la categoria seleccionada')
+
+    return redirect('categorias')

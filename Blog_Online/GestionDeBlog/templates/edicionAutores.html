@@ -17,7 +17,7 @@
 {% block contenido %} 
     <div class="row">
         <div class="col-md-12 offset-md-12">
-            <h2> Gestion de Clientes </h2>
+            <h2> Gestion de Autores </h2>
             <div class="card">
                 <div class="card-body">
                     <form action="/editarautor/" method="POST">{% csrf_token %}
@@ -60,7 +60,7 @@
                             value=False
                             {% endif %} id="flexCheckDefault" name="estado">
                             <label class="form-check-label" for="flexCheckDefault">Autor Activo/Autor Desactivado</label>
-                          </div>
+                        </div>
                         <div class="card-item">
                             <button type="submit" class="btn btn-success btn-block text-white"> Guardar </button>
                         </div>

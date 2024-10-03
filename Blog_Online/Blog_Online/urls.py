@@ -33,5 +33,10 @@ urlpatterns = [
     path('Autores/eliminarautor/<id>', views.eliminarautor, name="eliminarautor"),
     path('Autores/edicionautor/<id>', views.edicionautor, name="edicionautor"),
     path('editarautor/', views.editarautor, name="editarautor"),
+    path('Categorias/', views.categorias, name="categorias"),
+    path('registrarcategoria/', views.registrarcategoria, name="registrarcategoria"),
+    path('Categorias/edicioncategoria/<id>', views.edicioncategoria, name="edicioncategoria"),
+    path('Categorias/eliminarcategoria/<id>', views.eliminarcategoria, name="eliminarcategoria"),
+    path('editarcategoria/', views.editarcategoria, name="editarcategoria"),
     path('<slug:slug>/', views.detallepost, name='detallepost'),
 ]

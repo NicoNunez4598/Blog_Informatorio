@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+    Gestion de Categorias
+{% endblock title %}
+
+{% block imagen %} {% static 'assets/img/categorias.jpg' %} {% endblock imagen %}
+
+{% block titulo_principal %}
+    Gestion de Categorias
+{% endblock titulo_principal %}
+
+{% block barra_busqueda %}{% endblock barra_busqueda %}
+
+{% block contenido %} 
+    <div class="row">
+        <div class="col-md-12 offset-md-12">
+            <h2> Gestion de Categorias </h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editarcategoria/" method="POST">{% csrf_token %}
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Id</label>
+                            <input type="text" id="numberid" name="numberid" value="{{categoria.id}}" class="form-control" placeholder="Id" readonly>
+                        </div>
+                        <div class="card-item">
+                            <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                            <input type="text" id="txtNombre" name="txtNombre" value="{{categoria.nombre}}" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" {% if categoria.estado == True %} checked
+                            value=True
+                            {% else %}
+                            value=False
+                            {% endif %} id="flexCheckDefault" name="estado">
+                            <label class="form-check-label" for="flexCheckDefault">Autor Activo/Autor Desactivado</label>
+                        </div>
+                        <div class="card-item">
+                            <button type="submit" class="btn btn-success btn-block text-white"> Guardar </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}
