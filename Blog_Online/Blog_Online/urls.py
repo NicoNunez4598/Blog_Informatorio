@@ -30,6 +30,8 @@ urlpatterns = [
     path('videojuegos/', views.videojuegos, name='videojuegos'),
     path('Autores/', views.autores, name="autores"),
     path('registrarautor/', views.registrarautor, name="registrarautor"),
+    path('Autores/eliminarautor/<id>', views.eliminarautor, name="eliminarautor"),
     path('Autores/edicionautor/<id>', views.edicionautor, name="edicionautor"),
+    path('editarautor/', views.editarautor, name="editarautor"),
     path('<slug:slug>/', views.detallepost, name='detallepost'),
 ]

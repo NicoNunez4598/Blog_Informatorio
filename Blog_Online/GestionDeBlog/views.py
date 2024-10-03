@@ -132,3 +132,41 @@ def edicionautor(request, id):
     autor = Autor.objects.get(id=id)
 
     return render(request, 'edicionAutores.html', {"autor":autor})
+
+def editarautor(request):
+
+    id = request.POST['numberid']
+    nombres=request.POST['txtNombres']
+    apellidos=request.POST['txtApellidos']
+    facebook=request.POST['txtFacebook']
+    twitter=request.POST['txtTwitter']
+    instagram=request.POST['txtInstagram']
+    web=request.POST['txtWeb']
+    correo=request.POST['email']
+    estado=request.POST['estado']
+
+    autor = Autor.objects.get(id=id)
+    autor.nombres = nombres
+    autor.apellidos = apellidos
+    autor.facebook = facebook
+    autor.twitter = twitter
+    autor.instagram = instagram
+    autor.web = web
+    autor.correo = correo
+    autor.estado = estado
+
+    autor.save()
+
+    messages.success(request, 'Se ha editado con exito el autor seleccionado')
+
+    return redirect('autores')
+
+def eliminarautor(request, id):
+    
+    autor = Autor.objects.get(id=id)
+
+    autor.delete()
+
+    messages.success(request, 'Se ha eliminado el autor seleccionado')
+
+    return redirect('autores')
