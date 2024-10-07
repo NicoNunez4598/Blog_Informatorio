@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from GestionDeBlog import views
-from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm, password_reset_complete
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +25,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls'), name="login"),
     path('logout/', views.exit, name="exit"),
     path('register/', views.register, name='register'),
-    path('passChange/', views.passChange, name='passChange'),
     path('generales/', views.generales, name='generales'),
     path('tutoriales/', views.tutoriales, name='tutoriales'),
     path('tecnologia/', views.tecnologia, name='tecnologia'),
