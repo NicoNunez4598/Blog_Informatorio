@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Registracion de Usuario
+{% endblock title %}
+
+{% block imagen %} {% static 'assets/img/login.jpg' %} {% endblock imagen %}
+
+{% block titulo_principal %}
+    <h1>Registracion de Usuario</h1>
+{% endblock titulo_principal %}
+
+{% block barra_busqueda %}{% endblock barra_busqueda %}
+
+{% block contenido %} 
+    <div class="card">
+        <div class="card-body">
+            <h1> Registracion de Usuario </h1>
+            <form action="" method="post" class="card-content">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="card-button p-2">
+                    <button type="submit" class="btn btn-success btn-block text-white"> Iniciar Sesion </button>
+                </div>
+                <div class="card-button p-2">
+                    <a class="btn btn-link" href="#" role="button">¿No tenes cuenta? Registrate</a>
+                    <a class="btn btn-link" href="#" role="button">¿Te olvidaste tu contraseña?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock contenido %}

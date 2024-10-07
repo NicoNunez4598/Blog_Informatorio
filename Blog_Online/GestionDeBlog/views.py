@@ -4,9 +4,11 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.contrib import messages
 from .models import Autor, Categoria
+from .forms import CustomUserCreationForm
 
 # Create your views here.
 
@@ -217,3 +219,9 @@ def eliminarcategoria(request, id):
     messages.success(request, 'Se ha eliminado la categoria seleccionada')
 
     return redirect('categorias')
+
+def register(request):
+    data = {
+        'form' : CustomUserCreationForm()
+    }
+    return render(request, 'registration/register.html', data)

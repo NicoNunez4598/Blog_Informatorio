@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}
     LOGIN
 {% endblock title %}
@@ -30,6 +32,10 @@
                 </div>
                 <div class="card-button p-2">
                     <button type="submit" class="btn btn-success btn-block text-white"> Iniciar Sesion </button>
+                </div>
+                <div class="card-button p-2">
+                    <a class="card-link" href={% url 'register' %}>¿No tenes cuenta? Registrate</a>
+                    <a class="card-link" href={% url 'register' %}>¿Te olvidaste tu contraseña?</a>
                 </div>
             </form>
         </div>
