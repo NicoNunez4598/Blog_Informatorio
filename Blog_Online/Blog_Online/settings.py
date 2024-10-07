@@ -147,3 +147,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'inicio'
 
 LOGOUT_REDIRECT_URL = 'inicio'
+
+# Variables para envio de correo
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'ablog559@gmail.com'
+EMAIL_HOST_PASSWORD = 'adminblog559'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
